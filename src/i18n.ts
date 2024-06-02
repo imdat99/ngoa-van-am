@@ -19,7 +19,7 @@ i18n.use(Backend)
         supportedLngs: languages,
         ns: ["translation"],
         defaultNS: "translation",
-        preload: languages.splice(0,2),
+        preload: languages,
         debug: false,
         returnNull: false,
         interpolation: {
@@ -28,5 +28,5 @@ i18n.use(Backend)
         backend: {
             loadPath,
         },
-    })
+    }).then()
 export default i18n

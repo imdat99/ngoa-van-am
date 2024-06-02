@@ -1,0 +1,14 @@
+{
+    "Language": {
+        "Title": "Ngôn ngữ",
+        "Vietnamese": "Tiếng Việt",
+        "English": "English",
+        "Chinese": "中文",
+        "Japanese": "日本語"
+    },
+    "Regulation": {
+        "Title": "Trà quy",
+        "PrivacyPolicy": "Chính sách bảo mật",
+        "TermsOfService": "Điều khoản dịch vụ"
+    }
+}
