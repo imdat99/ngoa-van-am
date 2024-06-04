@@ -1,9 +1,17 @@
 {
-    "language": {
-        "title": "Ngôn ngữ",
+    "Language": {
+        "Title": "Ngôn ngữ",
         "Vietnamese": "Tiếng Việt",
         "English": "English",
         "Chinese": "中文",
         "Japanese": "日本語"
+    },
+    "Regulation": {
+        "Title": "Trà quy",
+        "Booking": "Liên hệ đặt bàn trước khi đến quán. Bàn đặt tối đa 5 người.",
+        "NoPerfume": "Vui lòng không dùng nước hoa/ tinh dầu trước khi đến quán.",
+        "NoFood": "Không mang đồ ăn từ ngoài vào quán khi đến thưởng trà.",
+        "NoPhoto": "Không quay phim, chụp ảnh trong quán.",
+        "ZondisconsTime": "Thời gian tối đa cho 1 bàn trà là 2 tiếng. Nếu bạn vẫn muốn lưu lại Am, vui lòng báo Am không nhận bàn khách sau và gọi một ấm trà mới."
     }
 }
