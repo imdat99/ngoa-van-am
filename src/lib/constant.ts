@@ -12,5 +12,8 @@ export const paths = {
         japan: '/tea/japan',
         taiwan: '/tea/taiwan',
         china: '/tea/china',
+        detail: {
+            discover: 'discover',
+        },
     },
 };
