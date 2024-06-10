@@ -1,11 +1,11 @@
-import { createBrowserRouter } from 'react-router-dom'
-import { createElement as _c } from 'react'
-import Layout from 'views/components/Layout'
-import HomePage from 'views/screens/HomePage'
 import { paths } from 'lib/constant'
+import { createElement as _c } from 'react'
+import { Outlet, createBrowserRouter } from 'react-router-dom'
+import Layout from 'views/components/Layout'
+import TeaLayout from 'views/components/TeaLayout'
+import HomePage from 'views/screens/HomePage'
 import Language from 'views/screens/Language'
 import Regulation from 'views/screens/Regulation'
-import TeaLayout from 'views/components/TeaLayout'
 import Tea from 'views/screens/Tea'
 
 const router = createBrowserRouter([
@@ -34,31 +34,55 @@ const router = createBrowserRouter([
                         element: _c(Tea),
                     },
                     {
+                        path: 'detail/:slug',
+                        element: _c(Outlet),
+                        children: [
+                            {
+                                index: true,
+                                lazy: async () => ({
+                                    Component: (
+                                        await import('views/screens/Tea/Detail/Intro')
+                                    ).default,
+                                }),
+                            },
+                            {
+                                path: paths.tea.detail.discover,
+                                lazy: async () => ({
+                                    Component: (
+                                        await import('views/screens/Tea/Detail/Discover')
+                                    ).default,
+                                }),
+                            }
+                        ],
+                    },
+                    {
                         path: paths.tea.vietnam.split('/').at(-1),
                         lazy: async () => ({
-                            Component: (await import('views/screens/Tea/Vietnam')).default,
-                        }),        
+                            Component: (
+                                await import('views/screens/Tea/Vietnam')
+                            ).default,
+                        }),
                     },
-                    {
-                        path: paths.tea.japan.split('/').at(-1),
-                        lazy: async () => ({
-                            Component: (await import('views/screens/Tea/Vietnam')).default,
-                        }),        
-                    },
-                    {
-                        path: paths.tea.taiwan.split('/').at(-1),
-                        lazy: async () => ({
-                            Component: (await import('views/screens/Tea/Taiwan')).default,
-                        }),        
-                    },
-                    {
-                        path: paths.tea.china.split('/').at(-1),
-                        lazy: async () => ({
-                            Component: (await import('views/screens/Tea/Vietnam')).default,
-                        }),        
-                    },
-                ]
-            }
+                    // {
+                    //     path: paths.tea.japan.split('/').at(-1),
+                    //     lazy: async () => ({
+                    //         Component: (await import('views/screens/Tea/Vietnam')).default,
+                    //     }),
+                    // },
+                    // {
+                    //     path: paths.tea.taiwan.split('/').at(-1),
+                    //     lazy: async () => ({
+                    //         Component: (await import('views/screens/Tea/Taiwan')).default,
+                    //     }),
+                    // },
+                    // {
+                    //     path: paths.tea.china.split('/').at(-1),
+                    //     lazy: async () => ({
+                    //         Component: (await import('views/screens/Tea/Vietnam')).default,
+                    //     }),
+                    // },
+                ],
+            },
         ],
     },
 ])

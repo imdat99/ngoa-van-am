@@ -32,6 +32,9 @@
         "JPTea": "Trà Nhật Bản",
         "TWTea": "Trà Đài Loan",
         "CNTea": "Trà Trung Quốc"
+    },
+    "Detail": {
+        "DiscoverNow": "Khám phá ngay"
     }
 
 }

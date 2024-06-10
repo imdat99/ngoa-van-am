@@ -12,6 +12,7 @@ module.exports = {
   rules: {
     'indent': ['error', 4, {"SwitchCase": 1}],
     "eol-last": ["error", "always"],
+    "@typescript-eslint/no-explicit-any": "off",
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },

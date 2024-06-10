@@ -9,7 +9,7 @@ const Header: React.FC = () => {
     const [title] = useHeader()
     const hideGoBack = ["/tea", '/tea/'].includes(pathname)
     return (
-        <div className="flex bg-white/80 justify-between h-14 w-full">
+        <div className="flex bg-white/80 justify-between h-14 w-full fixed top-0 z-10">
             {hideGoBack ? (
                 <div className="block w-14" />
             ) : (
