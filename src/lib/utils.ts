@@ -39,3 +39,18 @@ export const repairUrl = (url: string) => {
 }
 
 export const fillNumber = (num: number | string) => num.toString().padStart(2, '0')
+
+export function detectMob() {
+    const toMatch = [
+        /Android/i,
+        /webOS/i,
+        /iPhone/i,
+        /iPod/i,
+        /BlackBerry/i,
+        /Windows Phone/i
+    ];
+    
+    return toMatch.some((toMatchItem) => {
+        return navigator.userAgent.match(toMatchItem);
+    });
+}
