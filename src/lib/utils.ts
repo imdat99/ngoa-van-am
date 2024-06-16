@@ -37,3 +37,5 @@ export const repairUrl = (url: string) => {
         .replace('http:/', 'http://')
         .replace('https:/', 'https://')
 }
+
+export const fillNumber = (num: number | string) => num.toString().padStart(2, '0')

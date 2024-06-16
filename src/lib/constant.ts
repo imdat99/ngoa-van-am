@@ -14,6 +14,9 @@ export const paths = {
         china: '/tea/china',
         detail: {
             discover: 'discover',
+            Origin: 'origin',
+            Materials: 'materials',
+            Method: 'method',
         },
     },
 };

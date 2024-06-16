@@ -52,7 +52,31 @@ const router = createBrowserRouter([
                                         await import('views/screens/Tea/Detail/Discover')
                                     ).default,
                                 }),
-                            }
+                            },
+                            {
+                                path: paths.tea.detail.Origin,
+                                lazy: async () => ({
+                                    Component: (
+                                        await import('views/screens/Tea/Detail/Origin')
+                                    ).default,
+                                }),
+                            },
+                            {
+                                path: paths.tea.detail.Materials,
+                                lazy: async () => ({
+                                    Component: (
+                                        await import('views/screens/Tea/Detail/Materials')
+                                    ).default,
+                                }),
+                            },
+                            {
+                                path: paths.tea.detail.Method,
+                                lazy: async () => ({
+                                    Component: (
+                                        await import('views/screens/Tea/Detail/Method')
+                                    ).default,
+                                }),
+                            },
                         ],
                     },
                     {
