@@ -21,7 +21,7 @@ const listSubcontent = [
 
 const Origin = () => {
     return (
-        <TeaComponent title="" bgUrl="/images/taxua-bg.png">
+        <TeaComponent title="" bgUrl="/images/taxua-origin.png">
             <div className="h-full w-full bg-[#2121218F]/20 px-12 pt-14">
                 <div className="flex flex-col items-center my-6">
                     <p className='lora mr-auto text-white text-[2.2rem] leading-[3rem]'>

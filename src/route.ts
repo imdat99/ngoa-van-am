@@ -5,6 +5,7 @@ import Layout from 'views/components/Layout'
 import TeaLayout from 'views/components/TeaLayout'
 import HomePage from 'views/screens/HomePage'
 import Language from 'views/screens/Language'
+import NotFound from 'views/screens/NotFound'
 import Regulation from 'views/screens/Regulation'
 import Tea from 'views/screens/Tea'
 
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: _c(Layout),
+        errorElement: _c(NotFound),
         children: [
             {
                 index: true,
