@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Button } from '../ui/button'
 import {
     Drawer,
@@ -11,6 +11,7 @@ import {
 } from '../ui/drawer'
 import { paths } from 'lib/constant'
 import { useTranslation } from 'react-i18next'
+import React from 'react'
 
 const footerItems = [
     {
@@ -55,8 +56,13 @@ const menuItems = [
 
 const Menu = () => {
     const { t } = useTranslation()
+    const [open, setOpen] = React.useState(false)
+    const location = useLocation()
+    React.useEffect(() => {
+        setOpen(false)
+    }, [location])
     return (
-        <Drawer direction="right">
+        <Drawer direction="right" open={open} onOpenChange={setOpen}>
             <DrawerTrigger asChild>
                 <Button className="my-auto bg-transparent rounded-full data-[hidden=true]:hidden transition-colors duration-200 ease-in-out hover:bg-transparent hover:text-orange-200">
                     <svg

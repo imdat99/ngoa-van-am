@@ -9,7 +9,7 @@ interface WelcomeProps extends PropsWithChildren {
 const Welcome: React.FC<WelcomeProps> = ({background, children, nextPath, btnType}) => {
     const na = useNavigate()
     return (
-        <div className="h-svh bg-re bg-no-repeat bg-cover" style={{
+        <div className="h-svh !max-h-[930px] bg-re bg-no-repeat bg-cover" style={{
             backgroundImage: `url(${background})`
         }}>
             {children}
@@ -19,4 +19,3 @@ const Welcome: React.FC<WelcomeProps> = ({background, children, nextPath, btnTyp
 }
 
 export default Welcome
-//images/bg-welcome.png
