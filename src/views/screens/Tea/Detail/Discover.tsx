@@ -1,31 +1,33 @@
+import { paths } from "lib/constant"
 import { Link } from "react-router-dom"
 
 const buttonList = [
     {
         title: 'Xuất xứ',
         icon: '/images/button.png',
+        to: paths.tea.detail.Origin,
         isActive: true,
     },
     {
-        title: 'Đánh giá',
+        title: 'Nguyên liệu',
         icon: '/images/button.png',
+        to: paths.tea.detail.Materials,
         isActive: false,
     },
     {
-        title: 'Khám phá',
+        title: 'Cách pha',
         icon: '/images/button.png',
+        to: paths.tea.detail.Method,
         isActive: false,
     }
 ]
 const Discover = () => {
     return (
-        <div
-            className="h-full w-full bg-no-repeat bg-contain"
-            style={{
-                backgroundImage: `url('/images/discover-bg.png')`,
-            }}
-        >
-            <div className="flex flex-col items-center justify-end h-full">
+        <div className="h-full w-full bg-no-repeat bg-contain relative">
+            <div className="absolute"> 
+                <img src="/images/discover-bg.png" className="h-full w-full object-cover" />
+            </div>
+            <div className="flex flex-col items-center justify-end h-full relative">
                 <div className="bg-white rounded-t-[30px] w-full py-7">
                     <div className="flex items-center justify-between mb-7 mx-7">
                         <div className="block">
@@ -48,8 +50,7 @@ const Discover = () => {
                                     backgroundImage: `url('/images/button.png')`,
                                 }}
                             >
-                                {/* <img src={item.icon} className="w-full h-auto object-cover"/> */}
-                                <Link to="#" className="flex justify-between">
+                                <Link to={'../'+item.to} className="flex justify-between">
                                     <p className="my-auto">{item.title}</p>
                                     <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect width="34" height="34" rx="17" fill="#C59D5F"/>
