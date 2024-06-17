@@ -1,5 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as React from 'react'
 import useEmblaCarousel, {
     type UseEmblaCarouselType,
