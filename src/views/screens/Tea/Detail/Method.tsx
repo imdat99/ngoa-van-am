@@ -1,5 +1,4 @@
 import { fillNumber } from 'lib/utils'
-import React from 'react'
 import { Button } from 'views/components/ui/button'
 import {
     Carousel,
