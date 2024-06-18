@@ -98,7 +98,7 @@ const Method = () => {
     return (
         <Carousel className="h-full w-full bg-no-repeat bg-contain relative">
             <div className="flex flex-col h-full w-full rounded-[30px]">
-                <div className="h-3/5 overflow-hidden rounded-es-[30px] bg-red-500">
+                <div className="h-3/5 overflow-hidden rounded-es-[30px]">
                     <CarouselContent>
                         {steps.map((item, index) => (
                             <CarouselItem key={index}>
