@@ -36,7 +36,7 @@ const Language = () => {
             nextPath={paths.tea.root}
         >
             <div className="h-full flex px-4 bg-[#C59D5F40]">
-                <div className="w-full bg-white/10 my-auto rounded-2xl">
+                <div className="w-full bg-white/10 mt-[42%] mb-auto rounded-2xl">
                     <h1 className="lora font-bold text-2xl text-[#E2CEAF] text-center mt-10">
                         {t('Regulation.Title')}
                     </h1>

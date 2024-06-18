@@ -1,21 +1,22 @@
+import { cn } from 'lib/utils'
 import TeaComponent from 'views/components/TeaComponent'
 
 const listSubcontent = [
     {
         icon: '/svg/origin-icon.svg',
-        content: 'Xuất xứ: Là một loại oolong nổi tiếng của Đài Loan, người Đài thường gọi là Bạch Hào Olong .'
+        content: 'Xuất xứ: thuộc xã Tà Xùa, huyện Bắc Yên, Sơn La có độ cao 1700m so với mực nước biển'
     },
     {
-        icon: '/svg/origin-icon.svg',
-        content: 'Là cái tên được nữ hoàng Anh Elizabeth II đặt cho loại trà này sau khi bà được mời thưởng thức.'
+        icon: '/svg/sub-info.svg',
+        content: 'Trong tiếng H’mong, Tà Xùa có nghĩa là đỉnh núi có nhiều nguồn thảo dược quý hiếm'
     },
     {
-        icon: '/svg/origin-icon.svg',
-        content: 'Khí hậu hải đảo, nhiều núi cao, thời tiết sương mù sinh ra loại rầy xanh cắn lá non của cây trà.'
+        icon: '/svg/climate.svg',
+        content: 'Tà Xùa có khí hậu trong lành, sườn núi đón gió tạo nên những lớp mây bồng bềnh'
     },
     {
-        icon: '/svg/origin-icon.svg',
-        content: 'Hương vị của ĐPMN Đài Loan khác biệt so với ĐPMN sản xuất ngoài Đài Loan. Nước trà màu đỏ cam, hương mật ong và trái cây chín nồng nàn, êm dịu.'
+        icon: '/svg/smell.svg',
+        content: 'Nhờ có độ cao địa hình và đặc điểm khí hậu, nơi đây đem lại cho trà xanh Tà Xùa một hương vị độc đáo và khác biệt so với các loại trà xanh khác của Việt Nam'
     },
 ]
 
@@ -38,8 +39,8 @@ const Origin = () => {
                     {
                         listSubcontent.map((item, index) => (
                             <div key={index} className="flex items-center even:flex-row-reverse">
-                                <img src={item.icon} className="w-10 h-10 mr-5" />
-                                <p className="text-white">{item.content}</p>
+                                <img src={item.icon} className={cn("w-10 h-10", index%2 ? 'ml-5' : 'mr-5')} />
+                                <p className="text-white text-justify">{item.content}</p>
                             </div>
                         ))
                     }
