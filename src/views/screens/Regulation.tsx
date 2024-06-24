@@ -1,37 +1,18 @@
 import useWindowSize from 'hook/useWindowSize'
 import { paths } from 'lib/constant'
+import { configState } from 'lib/store'
 import { useTranslation } from 'react-i18next'
+import { useRecoilValue } from 'recoil'
 import Welcome from 'views/components/Welcome'
 
-const regularList = [
-    {
-        title: "Regulation.Booking",
-        svg: "svg/booking.svg",
-    },
-    {
-        title: "Regulation.NoPerfume",
-        svg: "svg/no-perfume.svg",
-    },
-    {
-        title: "Regulation.NoFood",
-        svg: "svg/no-food.svg",
-    },
-    {
-        title: "Regulation.NoPhoto",
-        svg: "svg/no-photo.svg",
-    },
-    {
-        title: "Regulation.ZondisconsTime",
-        svg: "svg/zondiscons-time.svg",
-    },
-]
-
 const Language = () => {
-    const { t } = useTranslation()
+    const { t } = useTranslation();
+    const pageConfig = useRecoilValue(configState)
     const { height } = useWindowSize()
+    
     return (
         <Welcome
-            background={'images/bg-traquy.png'}
+            background={pageConfig.regular_bg}
             btnType="both"
             nextPath={paths.tea.root}
         >
@@ -43,10 +24,10 @@ const Language = () => {
                     <div className="px-4 my-10 space-y-5 overflow-y-auto" style={height < 780 ? {
                         height: '300px',
                     } : {}}>
-                        {regularList.map(({title, svg}, index) => (
+                        {pageConfig.reqular_list.map(({content, icon}, index) => (
                             <div key={index} className='flex w-full'>
-                                <img src={svg} alt={title} className='flex-shrink-0 my-auto mr-3'/>
-                                <p className="text-white my-auto text-lg text-justify">{t(title)}</p>
+                                <img src={icon} alt={content} className='flex-shrink-0 my-auto mr-3'/>
+                                <p className="text-white my-auto text-lg text-justify">{content}</p>
                             </div>
                         ))}
                     </div>

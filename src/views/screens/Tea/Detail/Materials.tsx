@@ -1,41 +1,43 @@
+import { teaDetailState } from "lib/store";
 import React from "react"
+import { useTranslation } from "react-i18next";
+import { useRecoilValue } from "recoil";
 
 const Materials = () => {
+    const {t} = useTranslation();
+    const teaData = useRecoilValue(teaDetailState);
     const contentRef = React.useRef<HTMLDivElement>(null)
-    const galleries = Array.from({ length: 9 }, (_, index) => ({
-        id: index,
-        src: `/images/button.png`,
-    }))
     const [divHeight, setDivHeight] = React.useState(0)
     const convertGalleries = React.useMemo(() => {
+        const galleries = teaData.fields.galleries;
         const result: { src1: string; src2: string }[] = []
         if (galleries.length < 3) {
             galleries.forEach((item) => {
                 result.push({
-                    src1: item.src,
+                    src1: item.sizes.thumbnail,
                     src2: '',
                 })
             })
         } else {
             for (let i = 0; i < galleries.length; i += 2) {
                 result.push({
-                    src1: galleries[i].src,
-                    src2: galleries[i + 1] ? galleries[i + 1].src : '',
+                    src1: galleries[i].sizes.thumbnail,
+                    src2: galleries[i + 1] ? galleries[i + 1].sizes.thumbnail : '',
                 })
             }
         }
         return result
-    }, [galleries])
+    }, [teaData.fields.galleries])
     React.useEffect(() => {
         if (contentRef.current) {
             setDivHeight(contentRef.current.clientHeight)
         }
     }, [])
-    return (
+    return !teaData.loading ? (
         <div className="h-full w-full bg-no-repeat bg-contain relative">
             <div className="absolute w-full">
                 <img
-                    src="/images/taxua-nguyenlieu.png"
+                    src={teaData.fields.materials_button_bg}
                     className="h-full w-full object-cover"
                 />
             </div>
@@ -46,17 +48,17 @@ const Materials = () => {
                     }}>
                         <div className="p-6">
                             <h2 className="lora font-semibold text-2xl">
-                                Nguyên liệu
+                                {t('Materials')}
                             </h2>
                             <p className="my-6">
-                                Trà xanh cổ thụ Tà Xùa sao chảo gang, bếp củi
+                                {teaData.fields.material_desxription}
                             </p>
                         </div>
                     </div>
                     <div style={{
                         height: Math.round(divHeight/2), 
                     }}/>
-                    <p className="lora ml-7 my-3">Thư viện hình ảnh</p>
+                    <p className="lora ml-7 my-3">{t('Galleries')}</p>
                     <div className="flex space-x-5 overflow-y-auto [&>*:first-child]:ml-7 [&>*:last-child]:!mr-7">
                         {convertGalleries.map((item, index) => (
                             <div
@@ -82,7 +84,7 @@ const Materials = () => {
                 </div>
             </div>
         </div>
-    )
+    ) : <div>Loading...</div>
 }
 
 export default Materials

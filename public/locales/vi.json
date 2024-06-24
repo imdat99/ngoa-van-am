@@ -6,6 +6,11 @@
         "Chinese": "中文",
         "Japanese": "日本語"
     },
+    "Origin": "Xuất xứ",
+    "step": "Bước",
+    "Galleries": "Thư viện hình ảnh",
+    "Materials": "Nguyên liệu",
+    "Method": "Cách pha",
     "Regulation": {
         "Title": "Trà quy",
         "Booking": "Liên hệ đặt bàn trước khi đến quán. Bàn đặt tối đa 5 người.",
@@ -21,10 +26,28 @@
         "China": "Trung Quốc",
         "Taxua": "Tà Xùa",
         "Hue": "Huế",
-        "Tantruc": "Tản Trúc",
+        "TanTruc": "Tân Trúc",
         "Dongting": "Đông Đình",
         "LeShan": "Lê Sơn",
-        "AliShan": "AliShan"
+        "Alishan": "Alishan",
+        "HaNam": "Hà Nam",
+        "HangChau": "Hàng Châu",
+        "QuangDong": "Quảng Đông",
+        "VanNam": "Vân Nam",
+        "PhoNhiSong": "Phổ Nhĩ Sống",
+        "PhoNhiChin": "Phổ Nhĩ Chín",
+        "PhucKien": "Phúc Kiến",
+        "CaoSonVanVu": "Cao Sơn Vân Vụ",
+        "ChinhSonTieuChung": "Chính Sơn Tiểu Chủng",
+        "ThietQuanAmThuCong": "Thiết Quan Âm thủ công",
+        "ThietQuanAmBoiHoa": "Thiết Quan Âm bồi hỏa",
+        "NhamTraVuDi": "Nham trà Vũ Di",
+        "KimTuyen": "Kim Tuyên",
+        "CaoSon": "Cao Sơn",
+        "ThuyTien": "Thủy Tiên",
+        "Kyoto": "Kyoto",
+        "LieuAnhVien": "Liễu Anh Viên",
+        "ThuongLamXuanTung": "Thượng Lâm Xuân Tùng"
     },
     "Tea": {
         "Title": "Trà",
@@ -36,5 +59,4 @@
     "Detail": {
         "DiscoverNow": "Khám phá ngay"
     }
-
 }

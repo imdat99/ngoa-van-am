@@ -1,4 +1,8 @@
+import { MethodStep } from 'lib/Type'
+import { teaDetailState } from 'lib/store'
 import { fillNumber } from 'lib/utils'
+import { useTranslation } from 'react-i18next'
+import { useRecoilValue } from 'recoil'
 import { Button } from 'views/components/ui/button'
 import {
     Carousel,
@@ -9,30 +13,18 @@ import {
     useCarouselApi,
 } from 'views/components/ui/carousel'
 
-const steps = [
-    {
-        title: 'Bước 1',
-        content: '3-5 gr trà, tráng nóng ấm chén.\nĐổ trà vào ấm thức hương',
-        image: '/images/taxua-cachpha1.png',
-    },
-    {
-        title: 'Bước 2',
-        content: `Nước pha trà 90-95 độ C tráng nhanh tay. \nTuần 1 ủ trà 15-30s tùy khẩu vị đậm nhạt.\n Uống được khoảng 5-7 tuần trà.`,
-        image: '/images/taxua-cachpha2.png',
-    },
-]
-
-const MethodInfo = () => {
+const MethodInfo = ({steps}: {steps: MethodStep[]}) => {
+    const {t} = useTranslation()
     const { api } = useCarousel()
     const { selectedIndex, onDotButtonClick } = useCarouselApi(api)
     return (
         <div className="flex flex-col justify-between h-2/5 p-7">
             <div>
                 <p className="lora text-2xl">
-                    {steps[selectedIndex]?.title || ''}
+                    {t('Step')}{" "}{selectedIndex+1}
                 </p>
                 <p className="text-gray-600 my-5 whitespace-pre">
-                    {steps[selectedIndex]?.content || ''}
+                    {steps[selectedIndex]?.method_content || ''}
                 </p>
             </div>
             <div className="flex space-x-3 justify-between">
@@ -95,22 +87,23 @@ const MethodInfo = () => {
 }
 
 const Method = () => {
-    return (
+    const teaData = useRecoilValue(teaDetailState);
+    return teaData.loading ? <div>Loading...</div> : (
         <Carousel className="h-full w-full bg-no-repeat bg-contain relative">
             <div className="flex flex-col h-full w-full rounded-[30px]">
                 <div className="h-3/5 overflow-hidden rounded-es-[30px]">
                     <CarouselContent>
-                        {steps.map((item, index) => (
+                        {teaData.fields.method_step.map(e => ({...e})).map((item, index) => (
                             <CarouselItem key={index}>
                                 <img
-                                    src={item.image}
+                                    src={item.background}
                                     className="h-full w-full object-cover"
                                 />
                             </CarouselItem>
                         ))}
                     </CarouselContent>
                 </div>
-                <MethodInfo />
+                <MethodInfo steps={teaData.fields.method_step.map(e => ({...e}))}/>
             </div>
         </Carousel>
     )
