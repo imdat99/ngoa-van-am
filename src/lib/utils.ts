@@ -54,3 +54,5 @@ export function detectMob() {
         return navigator.userAgent.match(toMatchItem);
     });
 }
+
+export const fetcher = (params: any) => fetch(params).then(r => r.json());
