@@ -48,7 +48,11 @@ export interface Gallery {
       "2048x2048-height": number;
     };
   }
-  
+
+export type MethodStep = {
+    background: string;
+    method_content: string;
+}
 export interface Fields {
     ten_tra: string;
     location: string;
@@ -61,9 +65,32 @@ export interface Fields {
     origins_content: OriginContent[];
     material_desxription: string;
     galleries: Gallery[];
+    origin_head_title: string;
+    origin_background: string;
+    method_step: MethodStep[]
   }
   
 export interface TeaDetails {
     title: string;
     fields: Fields;
+}
+
+interface RegularItem {
+    content: string;
+    icon: string;
+  }
+  
+export interface TeaConfigData {
+    home_bg: string;
+    language_background: string;
+    regular_bg: string;
+    "location-bg": string;
+    reqular_list: RegularItem[];
+}
+
+export interface TeaInfo {
+        children: TeaInfo[],
+        name: string,
+        slug: string,
+        position: Record<string, any>,
 }

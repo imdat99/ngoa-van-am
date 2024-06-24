@@ -1,6 +1,8 @@
 import { paths } from 'lib/constant'
+import { configState } from 'lib/store'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import { useRecoilValue } from 'recoil'
 import ArrowBtn from 'views/components/ArrowBtn'
 
 const locationList = [
@@ -28,11 +30,12 @@ const locationList = [
 
 const Tea = () => {
     const { t } = useTranslation()
+    const pageConfig = useRecoilValue(configState)
     return (
         <>
             <div className="w-full bg-re bg-no-repeat bg-cover"
                 style={{
-                    backgroundImage: "url('/images/bg-location.png')"
+                    backgroundImage: `url(${pageConfig["location-bg"]})`
                 }}
             >
                 <div className="flex bg-[#C59D5F4D] w-full h-full">

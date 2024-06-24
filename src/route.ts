@@ -1,6 +1,6 @@
 import { paths } from 'lib/constant'
 import { createElement as _c } from 'react'
-import { Outlet, createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom'
 import { RecoilRoot } from 'recoil'
 import Layout from 'views/components/Layout'
 import TeaLayout from 'views/components/TeaLayout'
@@ -9,6 +9,7 @@ import Language from 'views/screens/Language'
 import NotFound from 'views/screens/NotFound'
 import Regulation from 'views/screens/Regulation'
 import Tea from 'views/screens/Tea'
+import DetailOutlet from 'views/screens/Tea/Detail/DetailOutlet'
 
 const router = createBrowserRouter([
     {
@@ -38,13 +39,19 @@ const router = createBrowserRouter([
                     },
                     {
                         path: 'detail/:slug',
-                        element: _c(RecoilRoot ,null, _c(Outlet)),
+                        element: _c(
+                            RecoilRoot,
+                            null,
+                            _c(DetailOutlet)
+                        ),
                         children: [
                             {
                                 index: true,
                                 lazy: async () => ({
                                     Component: (
-                                        await import('views/screens/Tea/Detail/Intro')
+                                        await import(
+                                            'views/screens/Tea/Detail/Intro'
+                                        )
                                     ).default,
                                 }),
                             },
@@ -52,7 +59,9 @@ const router = createBrowserRouter([
                                 path: paths.tea.detail.discover,
                                 lazy: async () => ({
                                     Component: (
-                                        await import('views/screens/Tea/Detail/Discover')
+                                        await import(
+                                            'views/screens/Tea/Detail/Discover'
+                                        )
                                     ).default,
                                 }),
                             },
@@ -60,7 +69,9 @@ const router = createBrowserRouter([
                                 path: paths.tea.detail.Origin,
                                 lazy: async () => ({
                                     Component: (
-                                        await import('views/screens/Tea/Detail/Origin')
+                                        await import(
+                                            'views/screens/Tea/Detail/Origin'
+                                        )
                                     ).default,
                                 }),
                             },
@@ -68,7 +79,9 @@ const router = createBrowserRouter([
                                 path: paths.tea.detail.Materials,
                                 lazy: async () => ({
                                     Component: (
-                                        await import('views/screens/Tea/Detail/Materials')
+                                        await import(
+                                            'views/screens/Tea/Detail/Materials'
+                                        )
                                     ).default,
                                 }),
                             },
@@ -76,7 +89,9 @@ const router = createBrowserRouter([
                                 path: paths.tea.detail.Method,
                                 lazy: async () => ({
                                     Component: (
-                                        await import('views/screens/Tea/Detail/Method')
+                                        await import(
+                                            'views/screens/Tea/Detail/Method'
+                                        )
                                     ).default,
                                 }),
                             },
@@ -90,24 +105,24 @@ const router = createBrowserRouter([
                             ).default,
                         }),
                     },
-                    // {
-                    //     path: paths.tea.japan.split('/').at(-1),
-                    //     lazy: async () => ({
-                    //         Component: (await import('views/screens/Tea/Vietnam')).default,
-                    //     }),
-                    // },
-                    // {
-                    //     path: paths.tea.taiwan.split('/').at(-1),
-                    //     lazy: async () => ({
-                    //         Component: (await import('views/screens/Tea/Taiwan')).default,
-                    //     }),
-                    // },
-                    // {
-                    //     path: paths.tea.china.split('/').at(-1),
-                    //     lazy: async () => ({
-                    //         Component: (await import('views/screens/Tea/Vietnam')).default,
-                    //     }),
-                    // },
+                    {
+                        path: paths.tea.japan.split('/').at(-1),
+                        lazy: async () => ({
+                            Component: (await import('views/screens/Tea/Japan')).default,
+                        }),
+                    },
+                    {
+                        path: paths.tea.taiwan.split('/').at(-1),
+                        lazy: async () => ({
+                            Component: (await import('views/screens/Tea/Taiwan')).default,
+                        }),
+                    },
+                    {
+                        path: paths.tea.china.split('/').at(-1),
+                        lazy: async () => ({
+                            Component: (await import('views/screens/Tea/China')).default,
+                        }),
+                    },
                 ],
             },
         ],

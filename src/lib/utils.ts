@@ -55,4 +55,6 @@ export function detectMob() {
     });
 }
 
-export const fetcher = (params: any) => fetch(params).then(r => r.json());
+export function isImage(url: string) {
+    return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+}

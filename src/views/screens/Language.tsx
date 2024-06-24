@@ -1,5 +1,7 @@
 import { paths } from 'lib/constant'
+import { configState, langState } from 'lib/store'
 import { useTranslation } from 'react-i18next'
+import { useRecoilState, useRecoilValue } from 'recoil'
 import Welcome from 'views/components/Welcome'
 import { RadioGroup, RadioGroupItem } from 'views/components/ui/radio-group'
 
@@ -10,12 +12,12 @@ const langList = [
         icon: 'svg/vn-flag.svg',
     },
     {
-        id: 'jp',
+        id: 'ja',
         name: 'Japanese',
         icon: 'svg/jp-flag.svg',
     },
     {
-        id: 'cn',
+        id: 'zh',
         name: 'Chinese',
         icon: 'svg/cn-flag.svg',
     },
@@ -28,9 +30,12 @@ const langList = [
 
 const Language = () => {
     const { t } = useTranslation()
+    const [lang, setLang] = useRecoilState(langState);
+    const configData = useRecoilValue(configState)
+
     return (
         <Welcome
-            background={'images/bg-language.png'}
+            background={configData.language_background}
             btnType="both"
             nextPath={paths.regulation}
         >
@@ -40,15 +45,15 @@ const Language = () => {
                         {t('Language.Title')}
                     </h1>
                     <div className="px-8 my-10">
-                        <RadioGroup defaultValue="vi" className='space-y-5 text-lg'>
+                        <RadioGroup defaultValue={lang} className='space-y-5 text-lg' onValueChange={setLang}>
                             {langList.map((lang, index) => (
                                 <div
-                                    className="flex items-center justify-between"
+                                    className="flex items-center justify-between cursor-pointer"
                                     key={index}
                                 >
                                     <label
                                         htmlFor={lang.id}
-                                        className="text-white flex"
+                                        className="text-white flex cursor-pointer"
                                     >
                                         <img src={lang.icon} alt={lang.name} className='my-auto mr-3'/>
                                         <span className='my-auto'>{t('Language.'+lang.name)}</span>
