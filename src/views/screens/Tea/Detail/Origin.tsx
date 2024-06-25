@@ -9,13 +9,13 @@ const Origin = () => {
         <TeaComponent title="" bgUrl={teaData.fields.origin_background}>
             <div className="h-full w-full bg-[#2121218F]/20 px-12 pt-14">
                 <div className="flex flex-col items-center my-6">
-                    <p className='lora mr-auto text-white text-[2.2rem] leading-[3rem]'>
+                    <p className='lora mr-auto text-white text-[2rem] leading-[3rem]'>
                         {teaData.fields.origin_head_title}
                     </p>
-                    <p className="lora text-[#C59D5F] text-7xl my-3 font-bold drop-shadow-lg">
+                    <p className="lora text-[#C59D5F] text-6xl my-3 font-bold drop-shadow-lg text-center">
                         {teaData.fields.ten_tra}
                     </p>
-                    <p className='lora ml-auto text-white text-[2.2rem] leading-[3rem]'>
+                    <p className='lora ml-auto text-white text-[2rem] leading-[3rem]'>
                         {teaData.fields.location}
                     </p>
                 </div>
