@@ -23,7 +23,10 @@ const MethodInfo = ({steps}: {steps: MethodStep[]}) => {
                 <p className="lora text-2xl">
                     {t('Step')}{" "}{selectedIndex+1}
                 </p>
-                <p className="text-gray-600 my-5 whitespace-pre">
+                <p className="text-gray-600 my-5" style={{
+                    wordBreak: 'break-word',
+                    whiteSpace: 'pre-wrap',
+                }}>
                     {steps[selectedIndex]?.method_content || ''}
                 </p>
             </div>
