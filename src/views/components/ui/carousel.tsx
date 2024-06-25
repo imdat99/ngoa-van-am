@@ -2,7 +2,7 @@ import * as React from 'react'
 import useEmblaCarousel, {
     type UseEmblaCarouselType,
 } from 'embla-carousel-react'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 
 import { cn } from 'lib/utils'
 import { Button } from 'views/components/ui/button'
@@ -157,7 +157,7 @@ const CarouselContent = React.forwardRef<
     const { carouselRef, orientation } = useCarousel()
 
     return (
-        <div ref={carouselRef} className="overflow-hidden">
+        <div ref={carouselRef} className="overflow-hidden h-full">
             <div
                 ref={ref}
                 className={cn(

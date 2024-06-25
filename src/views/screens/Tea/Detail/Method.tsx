@@ -13,20 +13,23 @@ import {
     useCarouselApi,
 } from 'views/components/ui/carousel'
 
-const MethodInfo = ({steps}: {steps: MethodStep[]}) => {
-    const {t} = useTranslation()
+const MethodInfo = ({ steps }: { steps: MethodStep[] }) => {
+    const { t } = useTranslation()
     const { api } = useCarousel()
     const { selectedIndex, onDotButtonClick } = useCarouselApi(api)
     return (
         <div className="flex flex-col justify-between h-2/5 p-7">
             <div>
                 <p className="lora text-2xl">
-                    {t('Step')}{" "}{selectedIndex+1}
+                    {t('Step')} {selectedIndex + 1}
                 </p>
-                <p className="text-gray-600 my-5" style={{
-                    wordBreak: 'break-word',
-                    whiteSpace: 'pre-wrap',
-                }}>
+                <p
+                    className="text-gray-600 my-5"
+                    style={{
+                        wordBreak: 'break-word',
+                        whiteSpace: 'pre-wrap',
+                    }}
+                >
                     {steps[selectedIndex]?.method_content || ''}
                 </p>
             </div>
@@ -90,23 +93,31 @@ const MethodInfo = ({steps}: {steps: MethodStep[]}) => {
 }
 
 const Method = () => {
-    const teaData = useRecoilValue(teaDetailState);
-    return teaData.loading ? <div>Loading...</div> : (
+    const teaData = useRecoilValue(teaDetailState)
+    return teaData.loading ? (
+        <div>Loading...</div>
+    ) : (
         <Carousel className="h-full w-full bg-no-repeat bg-contain relative">
-            <div className="flex flex-col h-full w-full rounded-[30px]">
-                <div className="h-3/5 overflow-hidden rounded-es-[30px]">
-                    <CarouselContent>
-                        {teaData.fields.method_step.map(e => ({...e})).map((item, index) => (
-                            <CarouselItem key={index}>
-                                <img
-                                    src={item.background}
-                                    className="h-full w-full object-cover"
-                                />
-                            </CarouselItem>
-                        ))}
+            <div className="flex flex-col h-full w-full">
+                <div className="h-3/5 overflow-hidden">
+                    <CarouselContent className='h-full'>
+                        {teaData.fields.method_step
+                            .map((e) => ({ ...e }))
+                            .map((item, index) => (
+                                <CarouselItem key={index}>
+                                    <div className='w-auto h-full max-w-[430px]'>
+                                        <img
+                                            src={item.background}
+                                            className="w-auto h-full object-cover rounded-es-[30px]"
+                                        />
+                                    </div>
+                                </CarouselItem>
+                            ))}
                     </CarouselContent>
                 </div>
-                <MethodInfo steps={teaData.fields.method_step.map(e => ({...e}))}/>
+                <MethodInfo
+                    steps={teaData.fields.method_step.map((e) => ({ ...e }))}
+                />
             </div>
         </Carousel>
     )
