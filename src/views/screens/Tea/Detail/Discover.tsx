@@ -38,7 +38,7 @@ const Discover = () => {
                         className="h-full w-full object-cover"
                     />
                 ) : (
-                    <video autoPlay muted loop id="myVideo" className="mt-14">
+                    <video autoPlay muted loop playsInline id="myVideo" className="mt-14">
                         <source src={teaData.fields.menu} type="video/mp4" />
                         Your browser does not support HTML5 video.
                     </video>
