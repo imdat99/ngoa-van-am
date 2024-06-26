@@ -1,6 +1,5 @@
 export const loadPath = "/locales/{{lng}}.json";
-// export const languages = ['vi', 'en', 'jp', 'cn'];
-export const languages = ['vi'];
+export const languages = ['vi', 'en', 'ja', 'zh'];
 export const paths = {
     home: "/",
     language: "/language",
