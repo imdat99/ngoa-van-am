@@ -1,9 +1,8 @@
 import { paths } from 'lib/constant'
 import { teaDetailState } from 'lib/store'
 import { isImage } from 'lib/utils'
-import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useRecoilValue } from 'recoil'
 
 const buttonList = [
@@ -29,6 +28,8 @@ const buttonList = [
 const Discover = () => {
     const teaData = useRecoilValue(teaDetailState)
     const { t } = useTranslation()
+    const na = useNavigate()
+
     return teaData.loading? <div>Loading...</div> : (
         <div className="h-full w-full bg-no-repeat bg-contain relative">
             <div className="absolute">
@@ -74,9 +75,9 @@ const Discover = () => {
                                     })`,
                                 }}
                             >
-                                <Link
-                                    to={'../' + item.to}
-                                    className="flex justify-between"
+                                <div
+                                    className="flex justify-between focus:outline-none hover:outline-none focus-visible:outline-none focus-within:outline-none"
+                                    onClick={() => na('../' + item.to)}
                                 >
                                     <p className="my-auto">{t(item.title)}</p>
                                     <svg
@@ -100,7 +101,7 @@ const Discover = () => {
                                             strokeLinejoin="round"
                                         />
                                     </svg>
-                                </Link>
+                                </div>
                             </div>
                         ))}
                     </div>

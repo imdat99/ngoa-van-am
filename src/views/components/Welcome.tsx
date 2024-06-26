@@ -12,12 +12,13 @@ const Welcome: React.FC<WelcomeProps> = ({background, children, nextPath, btnTyp
     return (
         <>
             <div
-                className="fixed top-0 left-0 min-h-svh w-full bg-no-repeat bg-cover z-0"
-                style={{
+                className="fixed top-0 left-0 min-h-dvh w-full z-0 flex"
+            >
+                <div className='min-h-dvh w-full bg-no-repeat bg-cover max-w-[430px] mx-auto' style={{
                     backgroundImage: `url(${background})`,
-                }}
-            ></div>
-            <div className={cn("relative flex flex-col-reverse min-h-svh", className)}>
+                }}></div>
+            </div>
+            <div className={cn("relative flex flex-col-reverse min-h-dvh", className)}>
                 <ArrowBtn
                     type={btnType}
                     onNext={() => {
