@@ -22,7 +22,7 @@ const Layout = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [lang])
     return (
-        <div className="flex min-h-svh flex-col bg-background w-full">
+        <div className="flex min-h-dvh flex-col bg-background w-full">
             {!import.meta.env.DEV && <ListenDevice />}
             <div className="flex-1">
                 <div className="max-w-[430px] mx-auto bg-repeat bg-contain relative">

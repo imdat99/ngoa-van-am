@@ -7,7 +7,7 @@ const Origin = () => {
     const teaData = useRecoilValue(teaDetailState);
     return teaData.loading ? <div>Loading...</div> : (
         <TeaComponent title="" bgUrl={teaData.fields.origin_background} className=''>
-            <div className="w-full px-12 pt-14 bg-[#2121218F]/20">
+            <div className="w-full px-12 pt-14 bg-[#2121218F]/20 min-h-dvh">
                 <div className="flex flex-col items-center mt-6">
                     <p className='lora mr-auto text-white text-[2rem] leading-[3rem]'>
                         {teaData.fields.origin_head_title}

@@ -39,7 +39,7 @@ const Language = () => {
             btnType="both"
             nextPath={paths.regulation}
         >
-            <div className="my-auto flex px-4 absolute h-svh w-full top-0">
+            <div className="my-auto flex px-4 absolute h-dvh w-full top-0">
                 <div className="w-full bg-secondary/10 my-auto rounded-2xl backdrop-blur-sm">
                     <h1 className="lora font-bold text-2xl text-[#E2CEAF] text-center mt-10">
                         {t('Language.Title')}

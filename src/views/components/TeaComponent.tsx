@@ -37,23 +37,22 @@ const TeaComponent: React.FC<TeaComponentProps> = ({children, title, bgUrl, styl
     return (
         <>
             <div
-                className={cn("fixed top-0 left-0 min-h-svh w-full bg-[#C59D5F40] bg-no-repeat bg-cover z-0", className)}
-                style={{
-                    backgroundImage: `url('${bgUrl}')`,
-                    backgroundPosition: `calc(265 / ${width} * 100%) calc(66 / ${height} * 100%)`,
-                    ...style,
-                }}
-            ></div>
-            <div
-                className="w-full bg-no-repeat bg-cover relative"
-                
+                className={cn(
+                    'fixed top-0 left-0 min-h-dvh w-full bg-[#C59D5F40] bg-no-repeat bg-cover z-0',
+                    className
+                )}
             >
-                <img
-                    ref={bgRef}
-                    src={bgUrl}
-                    alt="vn-tea"
-                    className="hidden"
-                />
+                <div
+                    className="min-h-dvh w-full bg-no-repeat bg-cover max-w-[430px] mx-auto"
+                    style={{
+                        backgroundImage: `url('${bgUrl}')`,
+                        backgroundPosition: `calc(265 / ${width} * 100%) calc(66 / ${height} * 100%)`,
+                        ...style,
+                    }}
+                ></div>
+            </div>
+            <div className="w-full bg-no-repeat bg-cover relative">
+                <img ref={bgRef} src={bgUrl} alt="vn-tea" className="hidden" />
                 {children}
             </div>
         </>
