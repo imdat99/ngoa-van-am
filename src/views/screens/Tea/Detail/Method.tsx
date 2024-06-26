@@ -21,7 +21,7 @@ const MethodInfo = ({ steps }: { steps: MethodStep[] }) => {
         <div className="flex flex-col justify-between h-2/5 p-7">
             <div>
                 <p className="lora text-2xl">
-                    {t('Step')} {selectedIndex + 1}
+                    {t('step')} {selectedIndex + 1}
                 </p>
                 <p
                     className="text-gray-600 my-5"

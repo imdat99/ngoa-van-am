@@ -33,9 +33,10 @@ const Tea = () => {
     const pageConfig = useRecoilValue(configState)
     return (
         <>
-            <div className="w-full bg-re bg-no-repeat bg-cover"
+            <div
+                className="w-full bg-re bg-no-repeat bg-cover"
                 style={{
-                    backgroundImage: `url(${pageConfig["location-bg"]})`
+                    backgroundImage: `url(${pageConfig['location-bg']})`,
                 }}
             >
                 <div className="flex bg-[#C59D5F4D] w-full h-full">
@@ -60,6 +61,8 @@ const Tea = () => {
                             ))}
                         </div>
                     </div>
+                </div>
+                <div className="absolute bottom-0 w-full">
                     <ArrowBtn type="prev" />
                 </div>
             </div>
