@@ -49,18 +49,18 @@ const Discover = () => {
                 <div className="bg-white rounded-t-[30px] w-full py-7">
                     <div className="flex items-center justify-between mb-7 mx-7">
                         <div className="block">
-                            <p className="lora text-2xl">
+                            <p className="lora text-[22px] text-black">
                                 {teaData.fields.origin_head_title}{" "}
                                 {teaData.fields.ten_tra}
                             </p>
                             <div className="flex">
-                                <img src="/svg/position.svg" />
-                                <p className="ml-1 text-gray-600">
+                                <img src="/svg/position.svg" className='my-auto'/>
+                                <p className="ml-1 text-gray-600 text-sm my-auto">
                                     {teaData.fields.location}
                                 </p>
                             </div>
                         </div>
-                        <p className="lora italic text-2xl font-semibold text-[#C59D5F] ml-auto">
+                        <p className="lora italic text-xl font-semibold text-[#C59D5F] ml-auto flex-shrink-0">
                             {teaData.fields.tea_price}
                         </p>
                     </div>

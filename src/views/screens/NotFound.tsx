@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { Button } from 'views/components/ui/button'
 
 const NotFound = () => {
@@ -17,9 +16,11 @@ const NotFound = () => {
                         explore on the home page.{' '}
                     </p>
                     <Button asChild>
-                        <Link to="/" className="text-white">
+                        <div onClick={() => {
+                            window.location.href = '/'
+                        }} className="text-white">
                             Go back home
-                        </Link>
+                        </div>
                     </Button>
                 </div>
             </div>

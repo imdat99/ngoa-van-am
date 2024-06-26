@@ -1,27 +1,28 @@
-import { atom } from 'recoil'
+import { atom, selector } from 'recoil'
 import { TeaConfigData, TeaDetails } from './Type'
+import { isImage } from './utils'
+import { detailDefault } from './constant'
 
 export const teaDetailState = atom<TeaDetails & { loading: boolean }>({
     key: 'teaDetailState',
-    default: {
-        loading: true,
-        title: '',
-        fields: {
-            ten_tra: '',
-            location: '',
-            tea_price: '',
-            overview_bg: '',
-            menu: '',
-            origin_button_bg: '',
-            materials_button_bg: '',
-            method_button_bg: '',
-            origins_content: [],
-            material_desxription: '',
-            galleries: [],
-            origin_background: '',
-            origin_head_title: '',
-            method_step: []
-        }
+    default: detailDefault,
+})
+
+export const ImgListState = selector<string[]>({
+    key: 'ImgListState/default',
+    get: ({ get }) => {
+        const teaDetail = get(teaDetailState)
+        const configData = get(configState)
+        const imgs = Object.values(teaDetail.fields).filter(
+            (v) => typeof v === 'string' && isImage(v)
+        )
+        Object.values(configData)
+            .filter((v) => typeof v === 'string' && isImage(v))
+            .forEach((v) => imgs.push(v))
+        teaDetail.fields.method_step.forEach((step) => {
+            imgs.push(step.background)
+        })
+        return imgs
     },
 })
 
@@ -30,13 +31,14 @@ export const langState = atom<string>({
     default: localStorage.getItem('i18nextLng') || 'vi',
 })
 
-export const configState = atom<TeaConfigData>({
+export const configState = atom<TeaConfigData & {loading: boolean}>({
     key: 'configState',
     default: {
-        home_bg: 'images/bg-welcome.png',
-        language_background: 'images/bg-language.png',
-        regular_bg: 'images/bg-traquy.png',
-        "location-bg": '/images/bg-location.png',
+        home_bg: '',
+        language_background: '',
+        regular_bg: '',
+        "location-bg": '',
         reqular_list: [],
+        loading: true,
     },
 })

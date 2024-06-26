@@ -13,7 +13,6 @@ const Language = () => {
             background={pageConfig.regular_bg}
             btnType="both"
             nextPath={paths.tea.root}
-            className='bg-[#C59D5F40]'
         >
             <div className="flex px-4">
                 <div className="w-full bg-white/10 mt-[42%] mb-auto rounded-2xl backdrop-blur-sm">
