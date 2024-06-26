@@ -1,4 +1,5 @@
 import axios from "axios"
+export const PageUrl = 'https://ngoavanam-demo.minastik.com/wp-json'
 export const client = axios.create({
-    baseURL: "https://ngoavanam-demo.minastik.com/wp-json/tea",
+    baseURL: [PageUrl, "tea"].join("/"),
 })
