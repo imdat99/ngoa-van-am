@@ -42,7 +42,7 @@ const TeaMap: React.FC<TeaMapProps> = ({
                                     />
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent>
-                                    {item.children.map((c) => (
+                                    {item.children.sort((a, b) => t('Location.'+a.name).localeCompare(t('Location.'+ b.name))).map((c) => (
                                         <DropdownMenuItem className="font-light text-[#674D25]" onClick={() => {
                                             na('/tea/detail/'+c.slug)
                                         }} key={c.slug}>{t('Location.'+c.name)}</DropdownMenuItem>

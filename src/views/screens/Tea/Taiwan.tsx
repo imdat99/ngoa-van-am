@@ -37,6 +37,10 @@ const twTeaList = [
         slug: '',
         children: [
             {
+                name: 'ThietQuanAmBoiHoaTW',
+                slug: "thiet-quan-am-boi-hoa-tw"
+            },
+            {
                 name: 'KimTuyen',
                 slug: 'kim-tuyen',
             },
