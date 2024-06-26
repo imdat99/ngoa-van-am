@@ -12,6 +12,15 @@ const teaList = [
     },
     {
         children: [],
+        name: 'GiangTo',
+        slug: 'giang-to',
+        position: {
+            right: '6%',
+            top: '10%',
+        },
+    },
+    {
+        children: [],
         name: 'HangChau',
         slug: 'hang-chau',
         position: {
