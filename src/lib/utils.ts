@@ -59,3 +59,40 @@ export function isImage(url: string) {
     if (!url) return false;
     return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
 }
+
+export function getImgMaincolor(imageLink: string): Promise<string> {
+    return new Promise((resolve) => {
+        const myImg = new Image()
+        myImg.src = imageLink
+        myImg.onload = function () {
+            const canvas = document.createElement('canvas')
+            //@ts-ignore
+            canvas.width = this.width
+            //@ts-ignore
+            canvas.height = this.height
+            const context = canvas.getContext('2d')
+            //@ts-ignore
+            context.drawImage(myImg, 0, 0)
+            //@ts-ignore
+            const { data } = context.getImageData(
+                //@ts-ignore
+                Math.floor(this.width / 2),
+                //@ts-ignore
+                this.height - 1,
+                1,
+                1
+            )
+            let r = data[0].toString(16)
+            let g = data[1].toString(16)
+            let b = data[2].toString(16)
+            if (r.length == 1) r = '0' + r
+            if (g.length == 1) g = '0' + g
+            if (b.length == 1) b = '0' + b
+            const imageColor = r + g + b
+            resolve(imageColor)
+        }
+        myImg.onerror = function () {
+            resolve('')
+        }
+    })
+}

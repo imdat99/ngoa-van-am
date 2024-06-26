@@ -1,7 +1,7 @@
 import { paths } from 'lib/constant'
 import { createElement as _c } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
-import { RecoilRoot } from 'recoil'
+// import { RecoilRoot } from 'recoil'
 import Layout from 'views/components/Layout'
 import TeaLayout from 'views/components/TeaLayout'
 import HomePage from 'views/screens/HomePage'
@@ -39,11 +39,7 @@ const router = createBrowserRouter([
                     },
                     {
                         path: 'detail/:slug',
-                        element: _c(
-                            RecoilRoot,
-                            null,
-                            _c(DetailOutlet)
-                        ),
+                        element: _c(DetailOutlet),
                         children: [
                             {
                                 index: true,
