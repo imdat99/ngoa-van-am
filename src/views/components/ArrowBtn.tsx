@@ -35,7 +35,7 @@ const ArrowButton: React.FC<ArrowButtonProps> = (props) => {
     const na = useNavigate()
     const onPrev = (props as ArrowPrevProps).onPrev || (() => na(-1))
     return (
-        <div className={cn('w-full flex absolute bottom-[5%]', className)}>
+        <div className={cn('w-full flex py-10 z-50', className)}>
             <div className="mx-auto">
                 {btnType.map(({ name, iconClassName }, i) => (
                     <Button

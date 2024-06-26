@@ -10,19 +10,23 @@ const Materials = () => {
     const [divHeight, setDivHeight] = React.useState(0)
     const convertGalleries = React.useMemo(() => {
         const galleries = teaData.fields.galleries;
-        const result: { src1: string; src2: string }[] = []
+        const result: { src1: string; src2: string, id1: number, id2: number }[] = []
         if (galleries.length < 3) {
             galleries.forEach((item) => {
                 result.push({
                     src1: item.sizes.thumbnail,
+                    id1: item.id,
                     src2: '',
+                    id2: 0,
                 })
             })
         } else {
             for (let i = 0; i < galleries.length; i += 2) {
                 result.push({
                     src1: galleries[i].sizes.thumbnail,
+                    id1: galleries[i].id,
                     src2: galleries[i + 1] ? galleries[i + 1].sizes.thumbnail : '',
+                    id2: galleries[i + 1] ? galleries[i + 1].id : 0,
                 })
             }
         }
@@ -32,7 +36,11 @@ const Materials = () => {
         if (contentRef.current) {
             setDivHeight(contentRef.current.clientHeight)
         }
-    }, [])
+    }, [teaData.loading])
+    const openGallery = (id: number) => {
+        const img = teaData.fields.galleries.find((item) => item.id === id)
+        img && window.open(img.url)
+    }
     return !teaData.loading ? (
         <div className="h-full w-full bg-no-repeat bg-contain relative">
             <div className="absolute w-full">
@@ -41,6 +49,9 @@ const Materials = () => {
                     className="h-full w-full object-cover"
                 />
             </div>
+            <div style={{
+                height: Math.round(divHeight/2),
+            }}></div>
             <div className="flex flex-col items-center justify-end h-full">
                 <div className="bg-white w-full py-7 relative">
                     <div className="items-center justify-between mb-7 mx-7 shadow-xl rounded-[30px] absolute bg-white" ref={contentRef} style={{
@@ -66,10 +77,16 @@ const Materials = () => {
                                 className="w-[160px] flex flex-col flex-shrink-0 space-y-4"
                             >
                                 <img
+                                    onClick={() => {
+                                        openGallery(item.id1)
+                                    }}
                                     src={item.src1}
                                     className="aspect-square w-[160px] rounded-md"
                                 />
                                 <img
+                                    onClick={() => {
+                                        openGallery(item.id2)
+                                    }}
                                     src={item.src2}
                                     style={
                                         !item.src2

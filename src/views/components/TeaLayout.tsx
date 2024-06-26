@@ -6,7 +6,7 @@ import React from 'react'
 const TeaLayout = () => {
     return (
         <HeaderContex.Provider value={React.useState('')}>
-            <div className="h-svh flex relative !max-h-[930px] overflow-y-hidden">
+            <div className="h-svh flex relative ">
                 <Header/>
                 <Outlet />
             </div>

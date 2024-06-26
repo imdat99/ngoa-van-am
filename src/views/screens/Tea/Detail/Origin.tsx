@@ -6,9 +6,9 @@ import TeaComponent from 'views/components/TeaComponent'
 const Origin = () => {
     const teaData = useRecoilValue(teaDetailState);
     return teaData.loading ? <div>Loading...</div> : (
-        <TeaComponent title="" bgUrl={teaData.fields.origin_background}>
-            <div className="h-full w-full bg-[#2121218F]/20 px-12 pt-14">
-                <div className="flex flex-col items-center my-6">
+        <TeaComponent title="" bgUrl={teaData.fields.origin_background} className=''>
+            <div className="w-full px-12 pt-14 bg-[#2121218F]/20">
+                <div className="flex flex-col items-center mt-6">
                     <p className='lora mr-auto text-white text-[2rem] leading-[3rem]'>
                         {teaData.fields.origin_head_title}
                     </p>
@@ -19,7 +19,7 @@ const Origin = () => {
                         {teaData.fields.location}
                     </p>
                 </div>
-                <div className="flex flex-col items-center mt-5 space-y-6 overflow-y-auto h-[calc(100%-280px)]">
+                <div className="flex flex-col items-center py-5 space-y-6">
                     {
                         teaData.fields.origins_content.map((item, index) => (
                             <div key={index} className="flex items-center even:flex-row-reverse">
@@ -29,7 +29,6 @@ const Origin = () => {
                         ))
                     }
                 </div>
-                
             </div>
         </TeaComponent>
     )
