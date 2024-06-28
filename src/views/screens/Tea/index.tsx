@@ -41,6 +41,7 @@ const Tea = () => {
             >
                 <div className="flex bg-[#C59D5F4D] w-full h-full">
                     <div className="m-auto px-4 w-full">
+                        <h6 className='lora font-bold text-2xl text-[#674D25] text-center mb-10'>{t('TeaType')}</h6>
                         <div className="grid grid-cols-2 gap-4">
                             {locationList.map(({ title, svg, path }) => (
                                 <div className="flex" key={path}>

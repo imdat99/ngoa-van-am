@@ -16,10 +16,9 @@ const Header: React.FC = () => {
                 <Button
                     onClick={() => na(-1)}
                     data-hidden={hideGoBack}
-                    className="my-auto bg-transparent rounded-full data-[hidden=true]:hidden transition-colors duration-200 ease-in-out hover:bg-transparent hover:text-orange-200"
+                    className="my-auto bg-transparent rounded-full data-[hidden=true]:hidden transition-colors duration-200 ease-in-out hover:bg-transparent hover:text-orange-200 focus:outline-none hover:outline-none focus-visible:outline-none focus-within:outline-none"
                 >
                     <svg
-                        className="hover:bg-amber-800/70 hover:text-orange-200 rounded-full"
                         width="28"
                         height="28"
                         viewBox="0 0 28 28"

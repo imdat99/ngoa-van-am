@@ -8,7 +8,7 @@ const ListenDevice = () => {
     React.useEffect(() => {
         setIsMobile(detectMob)
         if (!isMobile) {
-            // na('/mobile', { replace: true })
+            na('/Error', { replace: true })
         }
     }, [isMobile, na])
     return null
