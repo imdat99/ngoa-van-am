@@ -63,10 +63,9 @@ const Menu = () => {
     }, [location])
     return (
         <Drawer direction="right" open={open} onOpenChange={setOpen}>
-            <DrawerTrigger asChild>
-                <Button className="my-auto bg-transparent rounded-full data-[hidden=true]:hidden transition-colors duration-200 ease-in-out hover:bg-transparent hover:text-orange-200">
+            <DrawerTrigger asChild >
+                <Button className="my-auto bg-transparent rounded-full data-[hidden=true]:hidden transition-colors duration-200 ease-in-out hover:bg-transparent hover:text-orange-200 focus:outline-none hover:outline-none focus-visible:outline-none focus-within:outline-none">
                     <svg
-                        className="hover:bg-amber-800/70 hover:text-orange-200 rounded"
                         width="30"
                         height="26"
                         viewBox="0 0 30 26"

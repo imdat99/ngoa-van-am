@@ -67,6 +67,7 @@ const Discover = () => {
                     <div className="flex space-x-5 overflow-y-auto [&>*:first-child]:ml-7 [&>*:last-child]:!mr-7">
                         {buttonList.map((item, index) => (
                             <div
+                                onClick={() => na('../' + item.to)}
                                 key={index}
                                 className="text-white bg-no-repeat cursor-pointer rounded-3xl h-[271px] aspect-[212/271] flex flex-col-reverse p-5 bg-cover bg-current"
                                 style={{
@@ -77,7 +78,6 @@ const Discover = () => {
                             >
                                 <div
                                     className="flex justify-between focus:outline-none hover:outline-none focus-visible:outline-none focus-within:outline-none"
-                                    onClick={() => na('../' + item.to)}
                                 >
                                     <p className="my-auto">{t(item.title)}</p>
                                     <svg
